@@ -1,12 +1,14 @@
 import React, {Component} from "react";
-
+import { GlobalStyles } from './GlobalStyles';
 import OpenbankLogo from './assets/img/key_openbank.png';
 import Step1 from "./views/ProductInformation";
 import Step2 from "./views/Form";
 import Step3 from "./views/Feedback";
 
 import "./App.scss";
+import { Header } from './components/header';
 
+/*
 class App extends Component {
 
   render() {
@@ -76,3 +78,12 @@ class App extends Component {
 
 export default App;
 
+*/
+ export const App = () => {
+	 return (
+     <div className="App">
+			 <GlobalStyles />
+			<Header />
+     </div>
+   )
+ }
