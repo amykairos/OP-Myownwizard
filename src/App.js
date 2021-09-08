@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { GlobalStyles } from './GlobalStyles';
+import { WellcomeScreen } from './components/wellcomeScreen/index'
 import OpenbankLogo from './assets/img/key_openbank.png';
 import Step1 from "./views/ProductInformation";
 import Step2 from "./views/Form";
@@ -84,6 +85,7 @@ export default App;
      <div className="App">
 			 <GlobalStyles />
 			<Header />
+			 <WellcomeScreen />
      </div>
    )
  }
