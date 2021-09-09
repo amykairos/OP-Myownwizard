@@ -1,5 +1,11 @@
 {
-	"wellcomeText": "Bienvenido a nuestra applicacion blablabalbalablaba ",
-	"wellcomeImage": "static/media/hi.f36c27f9.png",
-	"wellcomeAltImage": "Imagen de Bievenida"
+	"wellcomeTitle": "Bienvenido a la Cuenta Corriente OpenClose ",
+	"wellcomeImage": "https://cdn-icons-png.flaticon.com/512/4712/4712109.png",
+	"wellcomeAltImage": "Imagen de Bievenida",
+	"wellcomeText": "Aqui podras disfrutar de todas las ventajas de ser nuestra cuenta corriente, nunca mas pagaras comisiones, disfurtaras de los Descuentos Open, puedes usarla desde tu movil o reloj tener hasta 4 cotitulares. Todo son ventajas. ",
+	"explanationTitle": "Te explicamos que viene a continuacion: ",
+	"explanationTest": "En la siguiente pantalla tendrás que facilitarnos una contraseña única. No podrás recuperarla, asi que recuérdala bien. Necesitamos que confirmes lo siguiente para continuar",
+	"explanationImage": "https://cdn-icons-png.flaticon.com/512/4394/4394560.png",
+	"explanationAltImage": "Imagen de pasos a seguir",
+	"legalTerms": "Confirmo que soy mayor de edad y acepto que mis datos sean tratados según la política de protección de datos"
 }

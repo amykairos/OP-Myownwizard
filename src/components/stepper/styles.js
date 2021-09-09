@@ -2,9 +2,12 @@ import styled from 'styled-components';
 
 export const Stepper = styled.ul `
 	display: flex;
-	width: 100%;
+	width: 95%;
 	padding-right: 0px;
 	padding-left: 0px;
+  @media(min-width: 768px) {
+		width: 100%;
+  }
 `
 
 

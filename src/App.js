@@ -8,6 +8,7 @@ import Step3 from "./views/Feedback";
 
 import "./App.scss";
 import { Header } from './components/header';
+import { Password } from './components/password';
 
 /*
 class App extends Component {
@@ -86,6 +87,7 @@ export default App;
 			 <GlobalStyles />
 			<Header />
 			 <WellcomeScreen />
+			 <Password />
      </div>
    )
  }
