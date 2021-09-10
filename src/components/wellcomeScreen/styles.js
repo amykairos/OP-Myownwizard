@@ -21,4 +21,14 @@ export const LegalTermsContainer = styled.div`
   @media(min-width: 768px) {
 		margin-top: 100px;
   }
-	`
+`
+export const ButtonContainer = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	width: 90%;
+`
+
+export const Button = styled.button`
+	background: #002B45;
+	color: white;
+`

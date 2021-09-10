@@ -1,5 +1,19 @@
-import React, { useState } from 'react';
-import { Form, Button, Password, Label, Clue, InputContainer, InfoText, ErrorText , ButtonContainer} from './styles';
+import React, { Fragment, useState } from 'react';
+import { submitForm } from '../../services/api';
+import Context from '../../Context';
+import {
+	Form,
+	Button,
+	Password,
+	Label,
+	Clue,
+	InputContainer,
+	InfoText,
+	ErrorText,
+	ButtonContainer,
+	TitleContainer,
+	Counter
+} from './styles';
 
 export const PasswordScreen = () => {
 	const [keyword, setKeyword] = useState( '');
@@ -8,9 +22,12 @@ export const PasswordScreen = () => {
 	const [equals, setEquals] = useState('')
 	const [clue, setClue] = useState('');
 
-	const handleSubmit = (evt) => {
+	const handleSubmit = async(evt) => {
 		evt.preventDefault()
-		console.log(keyword)
+		const {status} = await submitForm('ok')
+		if (status === 200) {
+			console.log('cucu?')
+		}
 	}
 
 	const handleInput = (evt) => {
@@ -40,28 +57,35 @@ export const PasswordScreen = () => {
 	}
 
 	return(
-		<Form onSubmit={handleSubmit}>
-			<div>
-				<InputContainer>
-					<Label>Introduce tu Contraseña</Label>
-					<Password type="password" value={keyword.password} onChange={handleInput}/>
-				</InputContainer>
-				{valid.includes('not') ? <ErrorText> {valid} </ErrorText> : <InfoText> {valid}  </InfoText>}
+		<Fragment>
+			<TitleContainer>
+				<h2>Crea aquí tu nueva Contraseña </h2>
+				<p> La contraseña debe de tener entre 8 y 24 caracteres, con al menos un número y una mayuscula y tu pista no podra sobrepasar los 255 caracteres. Recuerda que todos los campos son obligatorios</p>
+			</TitleContainer>
+			<Form onSubmit={handleSubmit}>
+				<div>
+					<InputContainer>
+						<Label>Introduce tu Contraseña</Label>
+						<Password type="password" value={keyword.password} onChange={handleInput}/>
+					</InputContainer>
+					{valid.includes('no') ? <ErrorText> {valid} </ErrorText> : <InfoText> {valid}  </InfoText>}
 
-				<InputContainer>
-					<Label>Confirma tu Contraseña</Label>
-					<Password type="password" value={confirmPass.password} onChange={handleConfirm}/>
-				</InputContainer>
-				{(valid.includes('no') || equals.includes('no')) ? <ErrorText> {equals} </ErrorText> : <InfoText> {equals} </InfoText>}
-			</div>
-			<div>
-				<Label>Crea tu pista como recordatorio</Label>
-				<Clue type="text" maxLength="60" onChange={handleClue}/>
-				<span>{clue.length} / 60</span>
-			</div>
-			<ButtonContainer>
-				<Button>Siguiente</Button>
-			</ButtonContainer>
-		</Form>
+					<InputContainer>
+						<Label>Confirma tu Contraseña</Label>
+						<Password type="password" value={confirmPass.password} onChange={handleConfirm}/>
+					</InputContainer>
+					{(valid.includes('no') || equals.includes('no')) ? <ErrorText> {equals} </ErrorText> : <InfoText> {equals} </InfoText>}
+				</div>
+				<div>
+					<Label>Crea tu pista como recordatorio</Label>
+					<Clue type="text" maxLength="255" onChange={handleClue}/>
+					<Counter>{clue.length} / 255</Counter>
+				</div>
+				{(clue.length <=0  || valid.includes('no') || equals.includes('no')) ?
+					'' : <ButtonContainer>
+						<Button onClick={ handleSubmit }>Siguiente</Button>
+					</ButtonContainer> }
+			</Form>
+		</Fragment>
 	)
 }

@@ -1,13 +1,22 @@
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+export const TitleContainer = styled.div`
+  margin: 35px auto 0px;
+  max-width: 95%;
+  font-size: 11px;
+  @media(min-width: 768px) {
+  max-width: 75%;
+    margin: 50px auto 20px;
+}
+`
 
 export const Form = styled.form`
   max-width: 95%;
-  margin: 50px auto;
+  margin: 20px auto;
 
   @media(min-width: 768px) {
     max-width: 75%;
+    margin: 50px auto;
   }
 `
 export const InputContainer = styled.div`
@@ -75,7 +84,7 @@ export const Clue = styled.input`
   border: 1px solid #ccc;
   border-radius: 3px;
   margin-bottom: 8px;
-  padding: 8px 4px;
+  padding: 8px;
   display: block;
   width: 75%;
   margin: 20px auto;
@@ -89,7 +98,15 @@ export const ButtonContainer = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	width: 90%;
-  
+`
+
+export const Counter = styled.p`
+	width: 75%;
+	margin: 5px auto;
+  @media(min-width: 768px) {
+    width: 95%;
+    margin: 20px auto;
+  }
 `
 
 export const Button = styled.button`

@@ -1,18 +1,13 @@
 import React, { Fragment, useState } from 'react';
 import { WellcomeSection } from '../wellcomeSection';
 import * as spanishInfo from '../../locale/es.json'
-import { LegalTermsContainer, TitleContainer } from './styles';
+import { LegalTermsContainer, TitleContainer, ButtonContainer, Button } from './styles';
 import Context from '../../Context';
-import { Password } from '../passwordScreen';
-import { on } from 'i18next';
 
 export const WellcomeScreen = () => {
 	const [checked, setChecked] = useState(false);
 
-	const onSubmit = (evt) => {
-		evt.preventDefault()
 
-	}
 
 	return (
 		<Fragment>
@@ -33,7 +28,10 @@ export const WellcomeScreen = () => {
 											 onChange={() => setChecked(!checked) } />
 								<p>{spanishInfo.legalTerms}</p>
 							</LegalTermsContainer>
-							{checked && <button onClick={ goToStep.bind(this, step+1) }>Siguiente</button>}
+							{checked &&
+							<ButtonContainer>
+								<Button onClick={ goToStep.bind(this, step+1) }>Siguiente</Button>
+							</ButtonContainer> }
 						</form>
 					}
 				</Context.Consumer>
