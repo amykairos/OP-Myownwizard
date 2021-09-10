@@ -16,6 +16,11 @@ export const Step = styled.li`
 	list-style: none;
 	border: 1px solid #9e9e9e;
 	padding: 10px 15%;
-	
+	&.red {
+		background-color: #FF0049;
+	}
+	&.white {
+		background-color: white;
+	}
 
 `

@@ -2,8 +2,11 @@ import React, { Fragment, useState } from 'react';
 import { WellcomeSection } from '../wellcomeSection';
 import * as spanishInfo from '../../locale/es.json'
 import { LegalTermsContainer, TitleContainer } from './styles';
+import Context from '../../Context';
+import { Password } from '../passwordScreen';
+import { on } from 'i18next';
 
-export const WellcomeScreen = (nextStep) => {
+export const WellcomeScreen = () => {
 	const [checked, setChecked] = useState(false);
 
 	const onSubmit = (evt) => {
@@ -21,15 +24,22 @@ export const WellcomeScreen = (nextStep) => {
 			<TitleContainer>
 				<h4	>{spanishInfo.explanationTitle}</h4>
 				<p>{spanishInfo.explanationTest}</p>
-				<form onSubmit={onSubmit}>
-					<LegalTermsContainer>
-						<input type="checkbox"
-									 checked={checked}
-									 onChange={() => setChecked(!checked) } />
-						<p>{spanishInfo.legalTerms}</p>
-					</LegalTermsContainer>
-					{checked && <button>Siguiente</button>}
-				</form>
+				<Context.TestComponent>
+					{(txt) => <h1> { txt }</h1>}
+				</Context.TestComponent>
+				<Context.Consumer>
+					{({ step, goToStep }) =>
+						<form>
+							<LegalTermsContainer>
+								<input type="checkbox"
+											 checked={checked}
+											 onChange={() => setChecked(!checked) } />
+								<p>{spanishInfo.legalTerms}</p>
+							</LegalTermsContainer>
+							{checked && <button onClick={ goToStep.bind(this, step+1) }>Siguiente</button>}
+						</form>
+					}
+				</Context.Consumer>
 
 			</TitleContainer>
 

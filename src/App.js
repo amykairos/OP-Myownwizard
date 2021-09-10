@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { GlobalStyles } from './GlobalStyles';
 import { WellcomeScreen } from './components/wellcomeScreen/index'
+import Context from './Context';
 import OpenbankLogo from './assets/img/key_openbank.png';
 import Step1 from "./views/ProductInformation";
 import Step2 from "./views/Form";
@@ -8,7 +9,7 @@ import Step3 from "./views/Feedback";
 
 import "./App.scss";
 import { Header } from './components/header';
-import { Password } from './components/password';
+import { PasswordScreen } from './components/passwordScreen';
 
 /*
 class App extends Component {
@@ -84,10 +85,19 @@ export default App;
  export const App = () => {
 	 return (
      <div className="App">
-			 <GlobalStyles />
-			<Header />
-			 <WellcomeScreen />
-			 <Password />
+			<GlobalStyles />
+		 	<Header />
+			<Context.Consumer>
+				{
+					({ step }) =>
+						step === 1
+						?
+							<WellcomeScreen /> :
+						step === 2 ?	<PasswordScreen /> :
+						step === 3 ? <h3> tercer paso</h3> :
+						<h4> Algo no esta bien</h4>
+				}
+			</Context.Consumer>
      </div>
    )
  }
