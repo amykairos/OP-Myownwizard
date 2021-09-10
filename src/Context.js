@@ -11,7 +11,6 @@ const Provider = ({ children }) => {
 			setStep(_step)
 		}
 	}
-	console.log('estoy en el context', step)
 
 	return (
 		<Context.Provider value={value}>
@@ -23,6 +22,5 @@ const Provider = ({ children }) => {
 export default {
 	Provider,
 	Consumer: Context.Consumer,
-	TestComponent: ({children}) => (<div>{children('Hello World')}</div>)
 }
 

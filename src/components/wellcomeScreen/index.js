@@ -24,9 +24,6 @@ export const WellcomeScreen = () => {
 			<TitleContainer>
 				<h4	>{spanishInfo.explanationTitle}</h4>
 				<p>{spanishInfo.explanationTest}</p>
-				<Context.TestComponent>
-					{(txt) => <h1> { txt }</h1>}
-				</Context.TestComponent>
 				<Context.Consumer>
 					{({ step, goToStep }) =>
 						<form>
