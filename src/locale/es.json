@@ -7,5 +7,15 @@
 	"explanationTest": "En la siguiente pantalla tendrás que facilitarnos una contraseña única. No podrás recuperarla, asi que recuérdala bien. Necesitamos que confirmes lo siguiente para continuar",
 	"explanationImage": "https://cdn-icons-png.flaticon.com/512/4394/4394560.png",
 	"explanationAltImage": "Imagen de pasos a seguir",
-	"legalTerms": "Confirmo que soy mayor de edad y acepto que mis datos sean tratados según la política de protección de datos"
+	"legalTerms": "Confirmo que soy mayor de edad y acepto que mis datos sean tratados según la política de protección de datos",
+	"ok" : {
+		"title": "Tu Password Manager ya está creado!",
+		"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh.",
+		"button": "Acceder >"
+	},
+	"ko" : {
+		"title": "Ha habido un error",
+		"text": "No hemos podido modificar tu Copntraseña. Inténtalo más tarde",
+		"button": "Volver a Password Manager >"
+	}
 }

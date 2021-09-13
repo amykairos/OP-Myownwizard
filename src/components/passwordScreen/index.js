@@ -28,7 +28,7 @@ export const PasswordScreen = () => {
 	const handleSubmit = async(evt) => {
 		evt.preventDefault()
 		try {
-			const { status } = await submitForm('pruebaKO123', keyword, clue)
+			const { status } = await submitForm('sii', keyword, clue)
 			nextScreen( status )
 		} catch (error) {
 
