@@ -5,6 +5,7 @@ import Context from './Context';
 import "./App.scss";
 import { Header } from './components/header';
 import { PasswordScreen } from './components/passwordScreen';
+import { FinalScreen } from './components/finalScreen'
 
 
  export const App = () => {
@@ -13,13 +14,13 @@ import { PasswordScreen } from './components/passwordScreen';
 		 	<Header />
 			<Context.Consumer>
 				{
-					({ step }) =>
+					({ step, status }) =>
 						step === 1
 						?
 							<WellcomeScreen /> :
 						step === 2 ?	<PasswordScreen /> :
-						step === 3 ? <h3> tercer paso</h3> :
-						<h4> Algo no fué bien</h4>
+						step === 3 ? <FinalScreen status={ status } />  :
+					null
 				}
 			</Context.Consumer>
      </div>

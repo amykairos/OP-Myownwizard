@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useContext, useDebugValue, useState } from 'react';
 import { submitForm } from '../../services/api';
-import Context from '../../Context';
+import { MyContext } from '../../Context';
 import {
 	Form,
 	Button,
@@ -16,6 +16,9 @@ import {
 } from './styles';
 
 export const PasswordScreen = () => {
+
+	const {step, goToStep, requestStatus} = useContext(MyContext)
+
 	const [keyword, setKeyword] = useState( '');
 	const [confirmPass, setConfirmPass] = useState('');
 	const [valid, setValidation] = useState('')
@@ -24,10 +27,21 @@ export const PasswordScreen = () => {
 
 	const handleSubmit = async(evt) => {
 		evt.preventDefault()
-		const {status} = await submitForm('ok')
-		if (status === 200) {
-			console.log('cucu?')
+		try {
+			const { status } = await submitForm('pruebaKO123', keyword, clue)
+			nextScreen( status )
+		} catch (error) {
+
+			nextScreen( error.status )
 		}
+
+
+	}
+
+	const nextScreen = (status) => {
+		console.log(status)
+		goToStep(step +1)
+		requestStatus(status ===200)
 	}
 
 	const handleInput = (evt) => {
@@ -41,6 +55,7 @@ export const PasswordScreen = () => {
 		}
 
 	}
+
 	const handleConfirm = (evt) => {
 		evt.preventDefault()
 		setConfirmPass(evt.target.value);
