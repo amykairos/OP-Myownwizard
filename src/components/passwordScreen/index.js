@@ -39,7 +39,6 @@ export const PasswordScreen = () => {
 	}
 
 	const nextScreen = (status) => {
-		console.log(status)
 		goToStep(step +1)
 		requestStatus(status ===200)
 	}
@@ -75,7 +74,7 @@ export const PasswordScreen = () => {
 		<Fragment>
 			<TitleContainer>
 				<h2>Crea aquí tu nueva Contraseña </h2>
-				<p> La contraseña debe de tener entre 8 y 24 caracteres, con al menos un número y una mayuscula y tu pista no podra sobrepasar los 255 caracteres. Recuerda que todos los campos son obligatorios</p>
+				<p>La contraseña debe de tener entre 8 y 24 caracteres, con al menos un número y una mayuscula y tu pista no podra sobrepasar los 255 caracteres. Recuerda que todos los campos son obligatorios</p>
 			</TitleContainer>
 			<Form onSubmit={handleSubmit}>
 				<div>

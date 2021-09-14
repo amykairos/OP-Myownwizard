@@ -1,9 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { App } from './App';
+import { render, screen } from '@testing-library/react';
+import'@testing-library/jest-dom'
+import Context from './Context';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+beforeAll(() => {
+  render(<Context.Provider>
+    <App/>,
+  </Context.Provider>);
+})
+
+test('render App and Logo header', () => {
+
+  expect(screen.getByAltText("openbank-logo")).toBeInTheDocument()})
